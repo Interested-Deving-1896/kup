@@ -1,59 +1,75 @@
-# Kup Backup System #
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# kup
 
-Kup is created for helping people to keep up-to-date backups of their personal files. Connecting a USB hard drive is the primary supported way to store files, but saving files to a server over a network connection is also possible for advanced users.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/kup)
 
-When you plug in your external hard drive Kup will automatically start copying your latest changes, but of course it will only do so if you have been active on your computer for some number of hours since the last time you took a backup (and it can of course ask you first, before copying anything).
-In general Kup tries to not disturb you needlessly.
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-There are two types of backup schemes supported, one which keeps the backup folder completely in sync with what you have on your computer, deleting from the backup any file that you have deleted on your computer etc. The other scheme also keeps older versions of your files in the backup folder. When using this, only the small parts of your files that has actually changed since last backup will be saved and therefore incremental backups are very cheap. This is especially useful if you are working on big files. At the same time it's as easy to access your files as if a complete backup was taken every time; every backup contains a complete version of your directories. Behind the scenes all the content that is actually the same is only stored once. To make this happen Kup runs the backup program "bup" in the background, look at https://github.com/bup/bup for more details.
+## Architecture
 
-## What the Kup backup system consists of ##
-- Configuration module, available in your system settings. Here you can configure backup plans, what to include, where to store the backup and how often. You can also see the status for the backup plans here.
-- A small program running in the background. It will monitor to see when your backup destination is available, schedule and run your backup plans.
-- Kioworker for accessing bup archives. This allows you to open files and folders directly from an archive, with any KDE application.
-- A file browsing application for bup archives, allowing you to locate the file you want to restore more easily than with the kioworker. It also helps you restore files or folders.
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-## Detailed list of features ##
-- backup types:
-  - Synchronized folders with the use of "rsync".
-  - Incremental backup archive with the use of "bup"
-- backup destinations:
-  - local filesystem, monitored for availability. That means you can set a destination folder which only exist when perhaps a network shared drive is mounted and Kup will detect when it becomes available.
-  - external storage, like usb hard drives. Also monitored for availability.
-- schedules:
-  - manual only (triggered from system tray applet)
-  - interval (suggests new backup after some time has passed since last backup)
-  - usage based (suggests new backup after you have been active on your computer for some hours since last backup).
+## Install
 
-## Needed backup programs ##
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-To actually create backups of your data you will need either "bup" or "rsync" installed. They
-provide the implementations for the two different types of backups that Kup supports.
-
-## Compiling from source ##
-To compile you need:
-- CMake
-- extra-cmake-modules
-- The following libraries (including their development headers):
-  - qt5-base
-  - kcoreaddons
-  - kdbusaddons
-  - ki18n
-  - kio
-  - solid
-  - kidletime
-  - knotifications
-  - kconfig
-  - kjobwidgets
-  - kcmutils
-  - plasma-framework
-  - libgit2
-
-Run from the source directory:
+```bash
+git clone https://github.com/Interested-Deving-1896/kup.git
+cd kup
 ```
-mkdir build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=release ..
-make
-sudo make install
+
+## Usage
+
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
+
+## Configuration
+
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
+
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/kup`](https://github.com/Interested-Deving-1896/kup) and mirrored through:
+
 ```
+Interested-Deving-1896/kup  ──►  OpenOS-Project-OSP/kup  ──►  OpenOS-Project-Ecosystem-OOC/kup
+```
+
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
+
+## Contributors
+
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
